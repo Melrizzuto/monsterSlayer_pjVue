@@ -36,12 +36,12 @@
         <h3 v-else="winner === 'draw'">It's a draw!</h3>
       </section>
       <section id="controls">
-        <button @click="attackMonster()">ATTACK</button>
-        <button :disabled="useSuperAttack" @click="superDamage()">
+        <button @click="attackMonster" :disabled="isDisabled">ATTACK</button>
+        <button @click="superDamage" :disabled="useSuperAttack || isDisabled">
           SPECIAL ATTACK
         </button>
-        <button @click="toHealPlayer()">HEAL</button>
-        <button>SURRENDER</button>
+        <button @click="toHealPlayer" :disabled="isDisabled">HEAL</button>
+        <button @click="surrender" :disabled="isDisabled">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
