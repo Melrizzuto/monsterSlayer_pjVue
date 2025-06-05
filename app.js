@@ -70,6 +70,12 @@ const app = Vue.createApp({
         },
         surrender() {
             this.winner = 'monster';
+        },
+        reset() {
+            this.monsterHealth = 100;
+            this.playerHealth = 100;
+            this.currentRound = 0;
+            this.winner = null
         }
     }
 })
