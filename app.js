@@ -5,7 +5,7 @@ function getRandomValue(min, max) {
 
 
 
-
+//app
 const app = Vue.createApp({
     data() {
         return {

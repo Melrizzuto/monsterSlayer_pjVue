@@ -3,53 +3,68 @@
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 body {
   margin: 0;
+  line-height: 1.6;
 }
 
 header {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 0.5rem;
-  background-color: #880017;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 1rem;
+  background: linear-gradient(to right, #880017, #b5003d);
   color: white;
   text-align: center;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 section {
   width: 90%;
   max-width: 40rem;
   margin: auto;
+  padding: 1rem;
 }
 
 .healthbar {
   width: 100%;
   height: 40px;
-  border: 1px solid #575757;
-  margin: 1rem 0;
+  border: 2px solid #575757;
+  margin: 1.5rem 0;
   background: #fde5e5;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .healthbar__value {
-  background-color: #00a876;
+  background: linear-gradient(to right, #00a876, #00e6a0);
   width: 100%;
   height: 100%;
+  transition: width 0.3s ease-in-out;
 }
 
 .container {
   text-align: center;
-  padding: 0.5rem;
-  margin: 1rem auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  background-color: white;
 }
 
 #monster h2,
 #player h2 {
   margin: 0.25rem;
+  font-size: 1.4rem;
+  color: #333;
 }
 
 #controls {
@@ -58,6 +73,8 @@ section {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 button {
@@ -65,31 +82,38 @@ button {
   border: 1px solid #88005b;
   background-color: #88005b;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 12px;
-  margin: 1rem;
-  width: 12rem;
+  width: 11rem;
   cursor: pointer;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-}
-
-button:focus {
-  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 button:hover,
 button:active {
   background-color: #af0a78;
   border-color: #af0a78;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #ddd;
   border-color: #ccc;
   box-shadow: none;
-  color: #3f3f3f;
+  color: #888;
   cursor: not-allowed;
+}
+
+#log {
+  margin-top: 2rem;
+  background-color: #fffefc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 #log ul {
@@ -100,20 +124,25 @@ button:disabled {
 
 #log li {
   margin: 0.5rem 0;
+  font-size: 0.95rem;
 }
 
 .log--player {
   color: #7700ff;
+  font-weight: 500;
 }
 
 .log--monster {
   color: #da8d00;
+  font-weight: 500;
 }
 
 .log--damage {
-  color: red;
+  color: #ff0033;
+  font-weight: bold;
 }
 
 .log--heal {
-  color: green;
+  color: #009933;
+  font-weight: bold;
 }
