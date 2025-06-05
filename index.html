@@ -34,6 +34,7 @@
         <h3 v-if="winner === 'monster'">You Lost!</h3>
         <h3 v-else-if="winner === 'player'">You Won!</h3>
         <h3 v-else="winner === 'draw'">It's a draw!</h3>
+        <button @click="reset">START A NEW BATTLE ROUND</button>
       </section>
       <section id="controls">
         <button @click="attackMonster" :disabled="isDisabled">ATTACK</button>
@@ -42,11 +43,16 @@
         </button>
         <button @click="toHealPlayer" :disabled="isDisabled">HEAL</button>
         <button @click="surrender" :disabled="isDisabled">SURRENDER</button>
-        <button @click="reset">START A NEW BATTLE ROUND</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="logMessage in logMessages" :key="logMessage">
+            <h3>Attacca: {{ logMessage.actionBy }}</h3>
+            <p>Mossa:{{ logMessage.actionType }}</p>
+            <p>Forza:{{ logMessage.actionValue }}</p>
+          </li>
+        </ul>
       </section>
     </div>
   </body>
