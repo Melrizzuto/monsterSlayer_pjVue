@@ -31,8 +31,10 @@
       </section>
       <section id="controls">
         <button @click="attackMonster()">ATTACK</button>
-        <button @click="superDamage()">SPECIAL ATTACK</button>
-        <button @click="toHeal()">HEAL</button>
+        <button :disabled="useSuperAttack" @click="superDamage()">
+          SPECIAL ATTACK
+        </button>
+        <button @click="toHealPlayer()">HEAL</button>
         <button>SURRENDER</button>
       </section>
       <section id="log" class="container">

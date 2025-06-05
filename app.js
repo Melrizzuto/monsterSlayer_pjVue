@@ -9,10 +9,9 @@ function getRandomValue(min, max) {
 const app = Vue.createApp({
     data() {
         return {
-
             monsterHealth: 100,
-            playerHealth: 100
-
+            playerHealth: 100,
+            currentRound: 0,
         }
     },
     computed: {
@@ -21,10 +20,14 @@ const app = Vue.createApp({
         },
         playerBar() {
             return { width: this.playerHealth + '%' }
+        },
+        useSuperAttack() {
+            return this.currentRound % 3 !== 0;
         }
     },
     methods: {
         attackMonster() {
+            this.currentRound++
             const attackValue = getRandomValue(5, 12);
             this.monsterHealth -= attackValue;
             this.attackPlayer()
@@ -34,13 +37,20 @@ const app = Vue.createApp({
             this.playerHealth -= attackPlayer
         },
         superDamage() {
+            this.currentRound++
             const superDamage = getRandomValue(10, 30)
             this.monsterHealth -= superDamage
             this.attackPlayer()
         },
-        toHeal() {
-            const toHeal = getRandomValue(5, 10)
-            this.playerHealth += toHeal
+        toHealPlayer() {
+            this.currentRound++
+            const healValue = getRandomValue(8, 30)
+            if (this.playerHealth + healValue > 100) {
+                this.playerHealth === 100
+            } else {
+                this.playerHealth += healValue
+            }
+            this.attackPlayer()
         }
     }
 })
